@@ -13,6 +13,11 @@ enum ObjectType {
 	HEDGEHOG
 };
 
+struct Data {
+	int x_coor, y_coor, z_coor, vx_coor, vy_coor, vz_coor;
+	
+};
+
 class ModelingObject {
 public:
 	ObjectType type;
@@ -32,18 +37,20 @@ public:
 	
 	int canSense(ModelingObject* anotherObj);
 	bool isObjectInArea();
-	void changeDirection(ModelingObject* anotherObj);
+	void changeDirectionTo(ModelingObject* anotherObj);
+	void changeDirectionFrom(ModelingObject* anotherObj);
 	void takeStep();
 
 
 	virtual bool isDangerous(ModelingObject* anotherObj) = 0;
+	struct Data getData() 
+	{
+		struct Data tmp = { x, y, z, vx, vy, vz };
+		return tmp;
+	}
+	
 
-	int getX() { return x; }
-	int getY() { return y; }
-	int getZ() { return z; }
-	int getVX() { return vx; }
-	int getVY() { return vy; }
-	int getVZ() { return vz; }
+
 
 protected:
 	int x, y, z;

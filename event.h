@@ -12,16 +12,28 @@ enum EventType {
 
 class Event {
 public:
-	EventType evType;
 
+	EventType getEventType()
+	{
+		return type;
+	}
 protected:
-	ModelingObject* object;
-	ModelingObject* anotherObj;
-
+	//ModelingObject* victim;
+	//ModelingObject* predator;
+	
+	EventType type;
+	Event(EventType eventt) {
+		type = eventt;
+	}
 
 };
 
 class DeleteObject :public Event {
+public:
+
+
+
+	
 
 };
 
@@ -30,6 +42,6 @@ class ChangeDirection :public Event {
 };
 
 class StopModeling :public Event {
-
+	StopModeling() :Event(STOP) {}
 };
 #endif
