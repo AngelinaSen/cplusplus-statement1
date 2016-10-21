@@ -32,6 +32,7 @@ class DeleteObject :public Event {
 public:
 
 
+protected:
 
 	
 
